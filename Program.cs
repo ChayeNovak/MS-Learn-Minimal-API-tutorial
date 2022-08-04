@@ -27,6 +27,13 @@ app.MapGet("/pizzas", () => PizzaDB.GetPizzas());
 app.MapPost("/pizzas", (PizzaStore.DB.Pizza pizza) => PizzaDB.CreatePizza(pizza));
 app.MapPut("/pizzas", (PizzaStore.DB.Pizza pizza) => PizzaDB.UpdatePizza(pizza));
 app.MapPut("/pizzas/{id}", (int id) => PizzaDB.RemovePizza(id));*/
-app.MapGet("/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync());
+app.MapGet("/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync()); //Get pizzas
+app.MapPost("/pizza", async (PizzaDb db, PizzaStore.Models.Pizza pizza) => { //Add a pizza
+    await db.Pizzas.AddAsync(pizza);
+    await db.SaveChangesAsync();
+    return Results.Created($"/pizza/{pizza.Id}", pizza);
+});
+app.MapGet("/pizza{id}", async (PizzaDb db, int id) => await db.Pizzas.FindAsync(id)); //Get a single pizza by id.
+
 
 app.Run();
