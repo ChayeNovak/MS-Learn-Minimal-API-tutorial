@@ -52,3 +52,6 @@ C:\Users\Chaye Novak\Documents\PizzaStore\MS-Learn-Minimal-API-tutorial\obj\Debu
 C:\Users\Chaye Novak\Documents\PizzaStore\MS-Learn-Minimal-API-tutorial\obj\Debug\net6.0\PizzaStore.pdb
 C:\Users\Chaye Novak\Documents\PizzaStore\MS-Learn-Minimal-API-tutorial\obj\Debug\net6.0\PizzaStore.genruntimeconfig.cache
 C:\Users\Chaye Novak\Documents\PizzaStore\MS-Learn-Minimal-API-tutorial\obj\Debug\net6.0\ref\PizzaStore.dll
+C:\Users\Chaye Novak\Documents\PizzaStore\MS-Learn-Minimal-API-tutorial\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Chaye Novak\Documents\PizzaStore\MS-Learn-Minimal-API-tutorial\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Chaye Novak\Documents\PizzaStore\MS-Learn-Minimal-API-tutorial\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
