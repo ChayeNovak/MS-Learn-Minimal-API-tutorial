@@ -4,9 +4,11 @@ using PizzaStore.DB;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("Pizza") ?? "Data Source=Pizza.db";
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddDbContext<PizzaDb>(options => options.UseInMemoryDatabase("items"));
+//builder.Services.AddDbContext<PizzaDb>(options => options.UseInMemoryDatabase("items"));
+builder.Services.AddSqlite<PizzaDb>(connectionString);
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo {Title = "PizzaStore API", Description = "Making the Pizzas you like", Version = "v1"});
@@ -27,7 +29,7 @@ app.MapGet("/pizzas", () => PizzaDB.GetPizzas());
 app.MapPost("/pizzas", (PizzaStore.DB.Pizza pizza) => PizzaDB.CreatePizza(pizza));
 app.MapPut("/pizzas", (PizzaStore.DB.Pizza pizza) => PizzaDB.UpdatePizza(pizza));
 app.MapPut("/pizzas/{id}", (int id) => PizzaDB.RemovePizza(id));*/
-app.MapGet("/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync()); //Get pizzas
+app.MapGet("/pizza", async (PizzaDb db) => await db.Pizzas.ToListAsync()); //Get pizzas
 app.MapPost("/pizza", async (PizzaDb db, PizzaStore.Models.Pizza pizza) => { //Add a pizza
     await db.Pizzas.AddAsync(pizza);
     await db.SaveChangesAsync();
