@@ -15,6 +15,11 @@ public class PizzaDB {
     public static List<Pizza> GetPizzas() {
         return _pizzas;
     }
+    
+    public static Pizza ? GetPizza(int id) 
+   {
+     return _pizzas.SingleOrDefault(pizza => pizza.Id == id);
+   } 
 
     public static Pizza CreatePizza(Pizza pizza) {
         _pizzas.Add(pizza);
