@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Chaye Novak\\Documents\\PizzaStore\\PizzaStore.csproj": {}
+    "C:\\Users\\Chaye Novak\\Documents\\PizzaStore\\MS-Learn-Minimal-API-tutorial\\PizzaStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Chaye Novak\\Documents\\PizzaStore\\PizzaStore.csproj": {
+    "C:\\Users\\Chaye Novak\\Documents\\PizzaStore\\MS-Learn-Minimal-API-tutorial\\PizzaStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Chaye Novak\\Documents\\PizzaStore\\PizzaStore.csproj",
+        "projectUniqueName": "C:\\Users\\Chaye Novak\\Documents\\PizzaStore\\MS-Learn-Minimal-API-tutorial\\PizzaStore.csproj",
         "projectName": "PizzaStore",
-        "projectPath": "C:\\Users\\Chaye Novak\\Documents\\PizzaStore\\PizzaStore.csproj",
+        "projectPath": "C:\\Users\\Chaye Novak\\Documents\\PizzaStore\\MS-Learn-Minimal-API-tutorial\\PizzaStore.csproj",
         "packagesPath": "C:\\Users\\Chaye Novak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Chaye Novak\\Documents\\PizzaStore\\obj\\",
+        "outputPath": "C:\\Users\\Chaye Novak\\Documents\\PizzaStore\\MS-Learn-Minimal-API-tutorial\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -46,6 +46,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
