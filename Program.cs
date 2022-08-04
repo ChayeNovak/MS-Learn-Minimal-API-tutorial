@@ -33,7 +33,24 @@ app.MapPost("/pizza", async (PizzaDb db, PizzaStore.Models.Pizza pizza) => { //A
     await db.SaveChangesAsync();
     return Results.Created($"/pizza/{pizza.Id}", pizza);
 });
-app.MapGet("/pizza{id}", async (PizzaDb db, int id) => await db.Pizzas.FindAsync(id)); //Get a single pizza by id.
+app.MapGet("/pizza/{id}", async (PizzaDb db, int id) => await db.Pizzas.FindAsync(id)); //Get a single pizza by id.
+app.MapPut("/pizza/{id}", async (PizzaDb db, PizzaStore.Models.Pizza updatepizza, int id) => { //Update a pizza to change toppings
+    var pizza = await db.Pizzas.FindAsync(id);
+    if (pizza is null) return Results.NotFound();
+    pizza.Name = updatepizza.Name;
+    pizza.Description = updatepizza.Description;
+    await db.SaveChangesAsync();
+    return Results.NoContent();
+});
 
+app.MapDelete("/pizza/{id}", async (PizzaDb db, int id) => { //Delete a pizza, such as if someone adds pineapple...
+    var pizza = await db.Pizzas.FindAsync(id);
+    if (pizza is null) {
+        return Results.NotFound();
+    }
+    db.Pizzas.Remove(pizza);
+    await db.SaveChangesAsync();
+    return Results.Ok();
+});
 
 app.Run();
